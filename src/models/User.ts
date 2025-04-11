@@ -11,7 +11,6 @@ export interface IUser extends Document {
     email: string;
     college: string,
     approved: Boolean;
-    createdAt: Date;
 }
     
 // Define the schema
@@ -24,7 +23,7 @@ const UserSchema: Schema<IUser> = new Schema<IUser>({
     section: { type: String, required: true },
     college: { type: String, required: true },
     email: { type: String, required: true, unique: true },
-    approved: { type: Boolean, required: true },
+    approved: { type: Boolean, required: true, default: false },
     
 }, { timestamps: true});
     
