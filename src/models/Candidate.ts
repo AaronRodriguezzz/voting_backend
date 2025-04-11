@@ -3,6 +3,7 @@ import mongoose, { Document, Schema } from 'mongoose';
 interface ICandidate extends Document {
     name: string,
     position: string,
+    party: string,
     election: Schema.Types.ObjectId,
 }
     
@@ -10,6 +11,7 @@ interface ICandidate extends Document {
 const CandidateSchema: Schema<ICandidate> = new Schema<ICandidate>({
     name: { type: String, required: true},
     position: { type: String, required: true },
+    party: { type: String, required: true },
     election: { type: Schema.Types.ObjectId, ref: 'election', required: true }
     
 }, { timestamps: true});
