@@ -7,5 +7,11 @@ export const createUser = async (userData : any) => {
 }
 
 export const findUser = async (query: FilterQuery<IUser>) => {
-    return await User.findOne(query).exec();
+    const user = await User.findOne(query).exec();
+    if (user) {
+        const { password, ...userWithoutPassword } = user.toObject();
+        return userWithoutPassword;
+    }
+
+    return null;
 };
