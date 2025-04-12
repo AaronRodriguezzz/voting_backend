@@ -1,10 +1,10 @@
-import mongoose, { Document, Schema } from 'mongoose';
+import mongoose, { Document, Schema, Types} from 'mongoose';
 
 interface ICandidate extends Document {
     name: string,
     position: string,
     party: string,
-    election: Schema.Types.ObjectId,
+    election: Types.ObjectId,
 }
     
 // Define the schema

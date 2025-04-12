@@ -1,14 +1,15 @@
-import mongoose, { Document, Schema } from 'mongoose';
+import mongoose, { Document, Schema, Types } from 'mongoose';
 
 interface IVote extends Document {
-    user: Schema.Types.ObjectId,
-    candidates: [Schema.Types.ObjectId],
-    createdAt: Date
+    user: Types.ObjectId,
+    election: Types.ObjectId,
+    candidates: Schema.Types.ObjectId[],
 }
     
 // Define the schema
 const VoteSchema: Schema<IVote> = new Schema<IVote>({
     user: { type: Schema.Types.ObjectId, ref: 'user', required: true },
+    election: { type: Schema.Types.ObjectId, ref: "election", required: true}, 
     candidates: [
         { type: Schema.Types.ObjectId, ref: 'candidate', required: true }
     ]
