@@ -13,7 +13,7 @@ const VoteSchema: Schema<IVote> = new Schema<IVote>({
     candidates: {
         type: [ { type: Schema.Types.ObjectId, ref: 'candidate' } ],
         required: true
-      }
+    }
 }, { timestamps: true});
     
 // Create the model

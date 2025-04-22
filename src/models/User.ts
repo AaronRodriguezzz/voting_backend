@@ -24,7 +24,6 @@ const UserSchema: Schema<IUser> = new Schema<IUser>({
     college: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     approved: { type: Boolean, required: true, default: false },
-    
 }, { timestamps: true});
     
 UserSchema.pre('save', async function(next) {
